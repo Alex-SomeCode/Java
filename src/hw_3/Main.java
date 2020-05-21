@@ -23,8 +23,7 @@ public class Main {
 //        test.size.XS.getDescription();
 
         Tie tie1 = new Tie(Size.L, 300, "red", "модняча");
-        System.out.println(tie1);
-        tie1.toDressMan();
+//        System.out.println(tie1);
         Tie tie2 = new Tie(Size.M, 300, "black", "шикарна");
         Tie tie3 = new Tie(Size.S, 300, "red", "класична");
         Tie tie4 = new Tie(Size.XXS, 300, "green", "сучасна");
