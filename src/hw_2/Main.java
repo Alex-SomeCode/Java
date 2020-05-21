@@ -31,7 +31,7 @@ public class Main {
 
         for (Printable value : print) {
             if (value == null) {
-                return;
+                break;
             }
             System.out.println(value);
             value.print();
