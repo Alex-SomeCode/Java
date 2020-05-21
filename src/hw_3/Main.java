@@ -18,7 +18,6 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        Atelier[] arrayClothes = new Atelier[10];
 //        Atelier test = new Atelier();
 //        test.size.XS.getDescription();
 
