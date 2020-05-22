@@ -2,28 +2,20 @@ package hw_3;
 
 public class Dress extends Clothes implements WomenClothes {
 
-    String name;
-
     public Dress() {
     }
 
     public Dress(Size size, double price, String color, String name) {
-        super(size, price, color);
-        this.name = name;
+        super(size, price, color, name);
     }
 
-
+    @Override
     public String toDressWomen() {
 
-        return "Привіт я " + name + " плаття із class Dress який implements WomenClothes" +
+        return "Привіт я " + getName() + " плаття із class Dress який implements WomenClothes" +
                 " та override toDressWomen()!";
 
     }
 
-    @Override
-    public String toString() {
-        return "Dress{" +
-                "name='" + name + '\'' +
-                '}';
-    }
+
 }

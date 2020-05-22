@@ -21,13 +21,12 @@ public class Atelier {
             if (element instanceof MenClothes) {
                 menClothes[i] = (MenClothes) element;
                 i++;
-            } // else break;
+            }
         }
 
         return menClothes;
 
     }
-
 
     public WomenClothes[] womenClothes() {
 
@@ -37,7 +36,7 @@ public class Atelier {
             if (element instanceof WomenClothes) {
                 womenClothes[i] = (WomenClothes) element;
                 i++;
-            } // else break;
+            }
 
         }
 

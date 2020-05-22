@@ -22,7 +22,7 @@ public class Main {
 //        test.size.XS.getDescription();
 
         Tie tie1 = new Tie(Size.L, 300, "red", "модняча");
-//        System.out.println(tie1);
+        System.out.println(tie1);
         Tie tie2 = new Tie(Size.M, 300, "black", "шикарна");
         Tie tie3 = new Tie(Size.S, 300, "red", "класична");
         Tie tie4 = new Tie(Size.XXS, 300, "green", "сучасна");
@@ -41,6 +41,8 @@ public class Main {
         Trousers trousers2 = new Trousers(Size.M, 300, "green", "нарядні");
         Trousers trousers3 = new Trousers(Size.L, 300, "black", "робочі");
         Trousers trousers4 = new Trousers(Size.XS, 300, "wight", "святкові");
+
+
 
 
         Clothes[] arrayCloth = new Clothes[20];
@@ -98,11 +100,11 @@ public class Main {
             if (cloth == null) break;
             System.out.println();
             System.out.println(cloth);
-            System.out.println(cloth.price);
-            System.out.println(cloth.size.name());
-            System.out.println(cloth.size.ordinal());
-            System.out.println(cloth.size.getEuroSize());
-            System.out.println(cloth.size.getDescription());
+            System.out.println(cloth.getPrice());
+            System.out.println(cloth.getName());
+            System.out.println(cloth.getSize().ordinal());
+            System.out.println(cloth.getSize().getEuroSize());
+            System.out.println(cloth.getSize().getDescription());
 
         }
 

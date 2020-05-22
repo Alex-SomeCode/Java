@@ -2,25 +2,34 @@ package hw_3;
 // 3. Створити абстрактний клас Одяг, який має такі поля: розмір одягу (використати створений енум), вартість, колір.
 
 public abstract class Clothes {
-    public Size size;
-    public double price;
-    public String color;
+    private Size size;
+    private double price;
+    private String color;
+    private String name;
 
     public Clothes() {
     }
 
-    public Clothes(Size size, double price, String color) {
+
+    public Clothes(Size size, double price, String color, String name) {
         this.size = size;
         this.price = price;
         this.color = color;
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Clothes{" +
                 "size=" + size +
-                ", price=" + price +
+                ", якщо простіше, то " +
+                size.getDescription() +
+                ", а самі цифри цього " +
+                size + " - " +
+                size.getEuroSize() +
+                "см , price=" + price +
                 ", color='" + color + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 
@@ -34,6 +43,14 @@ public abstract class Clothes {
 
     public String getColor() {
         return color;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void setSize(Size size) {
