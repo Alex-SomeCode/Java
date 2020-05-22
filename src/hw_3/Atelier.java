@@ -19,8 +19,7 @@ public class Atelier {
         int i = 0;
         for (Clothes element : clothes) {
             if (element instanceof MenClothes) {
-                menClothes[i] = (MenClothes) element;
-                i++;
+                menClothes[i++] = (MenClothes) element;
             }
         }
 
@@ -34,8 +33,7 @@ public class Atelier {
         int i = 0;
         for (Clothes element : clothes) {
             if (element instanceof WomenClothes) {
-                womenClothes[i] = (WomenClothes) element;
-                i++;
+                womenClothes[i++] = (WomenClothes) element;
             }
 
         }
