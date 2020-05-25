@@ -19,39 +19,40 @@ public class Store {
     //              чи в назві товару не присутні цифри).
 
     public void addProduct(Product element) {
-        String foreignNmeProduct = element.getName();
-        if (element.getPrice() > 0) {
-
-            if (element.getName() == null || foreignNmeProduct.equals("")) {
-                System.out.println("Назву продукта не введено.");
-                return;
-            }
-
-            char[] charArray = foreignNmeProduct.toCharArray();
-            List<Character> someElement_In_Name = new LinkedList<>();
-
-            for (char value : charArray) {
-                if (!(Character.isLetter(value))) {
-                    someElement_In_Name.add(value);
-                }
-            }
-
-            if (someElement_In_Name.size() > 0) {
-                System.out.println("Науступні симоли у назві продукту -- недопустимі:");
-                for (Character value : someElement_In_Name) {
-                    System.out.print("'" + value + "'" + "; ");
-
-                }
-                System.out.println();
-                System.out.println("Продукт " + foreignNmeProduct + " не додано у список.");
-                return;
-            }
-
-            productList.add(element);
+        String foreignNameProduct = element.getName();
+        if (element.getPrice() < 0) {
+            System.out.println("-----------------------Увага---------------------------------------");
+            System.out.println("Ціна продукту встановлена як від'ємне значення: " + element.getPrice() + "," +
+                    "у зв'язку із чим введення до списку проігноровано.");
+            System.out.println("-------------------------------------------------------------------");
         }
-        System.out.println("-----------------------Увага---------------------------------------");
-        System.out.println("Ціна продукту встановлена як від'ємне значення. " + foreignNmeProduct + " до списку не додано.");
-        System.out.println("-------------------------------------------------------------------");
+
+        if (foreignNameProduct == null || foreignNameProduct.equals("")) {
+            System.out.println("Поле \"назва\" порожнє. Продукт не введено до списку.");
+            return;
+        }
+
+        char[] charArray = foreignNameProduct.toCharArray();
+        List<Character> forbiddenElementInName = new LinkedList<>();
+
+        for (char value : charArray) {
+            if (!Character.isLetter(value)) {
+                forbiddenElementInName.add(value);
+            }
+        }
+
+        if (forbiddenElementInName.size() > 0) {
+            System.out.println("Наступні символи у назві продукту -- недопустимі:");
+            for (Character value : forbiddenElementInName) {
+                System.out.print("'" + value + "'" + "; ");
+
+            }
+            System.out.println();
+            System.out.println("Продукт " + foreignNameProduct + " не додано у список.");
+            return;
+        }
+        productList.add(element);
+
     }
 
     //        2. Видалити продукт з магазину по назві
@@ -135,15 +136,15 @@ public class Store {
     //        6. Порахувати середню вартість усіх товарів в магазині і вивести це число на екран
     public void averagePrice_Of_All_Products() {
 
-        double averagePrice_Of_All_Products = 0;
+        double averagePriceOfAllProducts = 0;
 
         for (Product element : productList) {
-            averagePrice_Of_All_Products += element.getPrice();
+            averagePriceOfAllProducts += element.getPrice();
         }
 
-        averagePrice_Of_All_Products /= productList.size();
+        averagePriceOfAllProducts /= productList.size();
 
-        System.out.println("Середня вартість усіх товарів: " + averagePrice_Of_All_Products);
+        System.out.println("Середня вартість усіх товарів: " + averagePriceOfAllProducts);
     }
 
     // Для роботи з колекцією варто ще створити метод, який наповнить наш магазин одразу же ж певною кількістю продуктів
@@ -152,6 +153,7 @@ public class Store {
         Random r = new Random();
         int max1 = 99999;
         int min1 = 10000;
+
         int diff1 = max1 - min1;
         int max2 = 5000;
         int min2 = 1000;
@@ -265,7 +267,6 @@ public class Store {
                 120.01, Type.NUT,
                 "Nice walnut",
                 r.nextInt(diff1 + 1) + min1));
-
 
 
     }

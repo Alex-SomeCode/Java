@@ -27,7 +27,7 @@ public class Main {
         Store store = new Store();
         store.addReadyProducts();
 
-//        store.addProduct(new Product(1, "K*&#$iwi", 1, Type.FRUITS, "Kiwik", 11));
+        store.addProduct(new Product(1, "$23$Pfasdf", -1, Type.FRUITS, "Kiwik", 11));
 
 //        System.out.println(store.getProductList().size());
 //        System.out.println(store.toString());
@@ -50,7 +50,7 @@ public class Main {
 //        store.averagePrice_Of_All_Products();
 
 //        System.out.println(store.toString());
-        
+
 
     } // main
 

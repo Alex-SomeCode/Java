@@ -1,16 +1,14 @@
 package hw_4;
 
-import java.util.Objects;
-
-public  class Product {
+public class Product {
     //  Створити клас Product (назва, ціна, тип (для цього можете створити енум) і ще 1-3 поля за власним бажанням).
 
-    int productCode = 30;
+    private int productCode = 30;
     private String name;
     private double price;
     private Type type;
-    String maker;
-    int makerCode;
+    private String maker;
+    private int makerCode;
 
     public Product() {
     }
@@ -75,7 +73,7 @@ public  class Product {
     @Override
     public String toString() {
         return "Код продукту: " + productCode +
-                ", назва: " + '\"'  + name + '\"' +
+                ", назва: " + '\"' + name + '\"' +
                 ", ціна: " + price +
                 ", тип: " + type.name() +
                 ", виробник: " + maker + '\'' +
