@@ -14,7 +14,6 @@ public class Main {
         User.UserBuilder builder = User.builder();
         User user1 = builder.setFullName("Test").buildUser();
         System.out.println(user1.toString());
-        Car.CarBuilder carBuilder = Car.builder();
 
 
 
