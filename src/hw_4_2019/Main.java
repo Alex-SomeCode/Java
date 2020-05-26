@@ -80,6 +80,17 @@ public class Main {
 
 
 
+        //        CLASSWORK
+        //        Створити класс який має в якості поля масив.
+
+        //        Створити внутрішній класс який додає елементи в кінець масиву, та додає елементи в конкретну позицію масиву.
+        //        Створити внутрішній класс який видаляє елементи з цього масиву , видаляє елемент з певної позиції.
+        //
+        //        Створити внутрішній класс який ітерує елементи. Виклик методу next() вертає 1й елемент,
+        //        наступний виклик вертає 2й і тд...
+        //        Виклик методу prev() - робить те саме що і next() тільки в зворотньому напрямку
+        //        (з урахуванням поточної позиції і викликів next())
+
 
         Watch watch1 = new Watch("SomeBrand", "SomeModel");
 
@@ -94,9 +105,9 @@ public class Main {
         System.out.println(watch1.toString());
 
 
-//        Watch.removeFunction.deleteFunctionByIndex(watch1,1);
-//        Watch.removeFunction.deleteFunctionByName(watch1,"Timer-4");
-//        System.out.println(watch1.toString());
+        Watch.removeFunction.deleteFunctionByIndex(watch1,1);
+        Watch.removeFunction.deleteFunctionByName(watch1,"Timer-4");
+        System.out.println(watch1.toString());
 
 
         Watch.functionIterator.previousIteration();
@@ -118,16 +129,7 @@ public class Main {
 }
 
 
-//        CLASSWORK
-//        Створити класс який має в якості поля масив.
 
-//        Створити внутрішній класс який додає елементи в кінець масиву, та додає елементи в конкретну позицію масиву.
-//        Створити внутрішній класс який видаляє елементи з цього масиву , видаляє елемент з певної позиції.
-//
-//        Створити внутрішній класс який ітерує елементи. Виклик методу next() вертає 1й елемент,
-//        наступний виклик вертає 2й і тд...
-//        Виклик методу prev() - робить те саме що і next() тільки в зворотньому напрямку
-//        (з урахуванням поточної позиції і викликів next())
 
 
 
