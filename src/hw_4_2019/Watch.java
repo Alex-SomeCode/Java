@@ -1,6 +1,5 @@
 package hw_4_2019;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -69,7 +68,7 @@ public class Watch {
         }
 
         public static void deleteFunctionByIndex(Watch watch, int index) {
-           functions.remove(index);
+            functions.remove(index);
         }
     }
 
@@ -80,18 +79,20 @@ public class Watch {
 
     public static class functionIterator {
         static int n = 0;
+
         public static void nextIteration() {
-            if (n > functions.size()) {
-                n = 0;
+            if (n == functions.size() - 1) {
+                n = -1;
             }
-            System.out.println(functions.get(n++));
+            System.out.println("next: " + functions.get(++n));
         }
 
         public static void previousIteration() {
             if (n <= 0) {
-                n = functions.size() - 1;
+                n = functions.size();
             }
-            System.out.println(functions.get(n--));
+            System.out.println("previous: " + functions.get(--n));
+
         }
 
     }

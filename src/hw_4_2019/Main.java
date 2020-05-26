@@ -5,91 +5,80 @@ public class Main {
 
     public static void main(String[] args) {
 
-        // 1. Створити клас "Користувач"
-        //        поля
-        //        ПІБ, вік, пошта,ід,телефон
-        //        За допомоги внутрішнього класу реалізувати паттерн "Builder"
+//         1. Створити клас "Користувач"
+//                поля
+//                ПІБ, вік, пошта,ід,телефон
+//                За допомоги внутрішнього класу реалізувати паттерн "Builder"
 
 
-//        User.UserBuilder builder = User.builder();
-//        User user1 = builder.setFullName("Test").buildUser();
-//        System.out.println(user1.toString());
-//        Car.CarBuilder carBuilder = Car.builder();
+        User.UserBuilder builder = User.builder();
+        User user1 = builder.setFullName("Test").buildUser();
+        System.out.println(user1.toString());
+        Car.CarBuilder carBuilder = Car.builder();
 
 
-        //        2. Створити клас "Авто"
-        //        поля
-        //        модель, Двигун, Колеса[],ід, потужність
-        //        За допомоги внутрішнього класу реалізувати паттерн "Builder"
+
+//                2. Створити клас "Авто"
+//                поля
+//                модель, Двигун, Колеса[],ід, потужність
+//                За допомоги внутрішнього класу реалізувати паттерн "Builder"
 
 
-        //        2. Створити клас "Авто"
-        //        поля
-        //        модель, Двигун, Колеса[],ід, потужність
-        //        За допомоги внутрішнього класу реалізувати паттерн "Builder"
+        Car car1 = Car.builder()
+                .setModel("Ford")
+                .setEngine(4.2)
+                .setPower(400)
+                .setWheels(new String[]{
+                        "Переднє ліве - лите - розмір - 21 дюйм",
+                        "Переднє праве - лите - розмір - 21 дюйм",
+                        "Заднеє ліве - лите - розмір - 21 дюйм",
+                        "Заднє праве - лите - розмір - 21 дюйм"
+                })
+                .buildCar();
+
+        System.out.println(car1.toString());
 
 
-//        Car car1 = Car.builder()
-//                .setModel("Ford")
-//                .setEngine(4.2)
-//                .setPower(400)
-//                .setWheels(new String[]{
-//                        "Переднє ліве - лите - розмір - 21 дюйм",
-//                        "Переднє праве - лите - розмір - 21 дюйм",
-//                        "Заднеє ліве - лите - розмір - 21 дюйм",
-//                        "Заднє праве - лите - розмір - 21 дюйм"
-//                })
-//                .buildCar();
+//                3. Створити клас "Собака"
+//                поля визначити самостійно, але не меньше 6.
+//                За допомоги внутрішнього класу реалізувати паттерн "Builder"
+
+        Dog dog1 = Dog.builder()
+                .setDogName("BigBob")
+                .setDogAge((byte) 4)
+                .setDogWeight(10.2)
+                .setDogSkills(new String []{
+                        "jump",
+                        "read",
+                        "speak",
+                        "java"
+                })
+                .setDogBreed("Nice dog")
+                .buildDog();
+
+        System.out.println(dog1.toString());
+
 //
-//        System.out.println(car1.toString());
+//                4. Створити будь-який клас на 10 полів
+//                За допомоги внутрішнього класу реалізувати паттерн "Builder"
+
+        Notebook notebook1 = Notebook.builder()
+                .setNotebookBrand("SomeBrand")
+                .setNotebookModel("SomeModel")
+                .setNotebookColor("SomeColor")
+                .setProcessorBrand("SomeProcessorBrand")
+                .setProcessorModel("SomeProcessorModel")
+                .setVideoCardBrand("SomeBrandVideo")
+                .setVideoCardModel("SomeModeVideo")
+                .setRAMBrand("SomeBrandDDR")
+                .setRAMModel("DDR")
+                .setRAMSize((byte) 4)
+                .notebookBuild();
+
+        System.out.println(notebook1.toString());
 
 
-        //        3. Створити клас "Собака"
-        //        поля визначити самостійно, але не меньше 6.
-        //        За допомоги внутрішнього класу реалізувати паттерн "Builder"
 
-//        Dog dog1 = Dog.builder()
-//                .setDogName("BigBob")
-//                .setDogAge((byte) 4)
-//                .setDogWeight(10.2)
-//                .setDogSkills(new String []{
-//                        "jump",
-//                        "read",
-//                        "speak",
-//                        "java"
-//                })
-//                .setDogBreed("Nice dog")
-//                .buildDog();
-//
-//        System.out.println(dog1.toString());
-
-
-        //        4. Створити будь-який клас на 10 полів
-        //        За допомоги внутрішнього класу реалізувати паттерн "Builder"
-
-//        Notebook notebook1 = Notebook.builder()
-//                .setNotebookBrand("HP")
-//                .setNotebookModel("Omen")
-//                .setNotebookColor("black")
-//                .setProcessorBrand("Intel")
-//                .setProcessorModel("i5-8300H")
-//                .setVideoCardBrand("Nvidia")
-//                .setVideoCardModel("RTX2060")
-//                .setRAMBrand("Samsung")
-//                .setRAMModel("DDR4")
-//                .setRAMSize((byte) 16)
-//                .notebookBuild();
-//
-//        System.out.println(notebook1.toString());
-
-
-        // 18.06 26.05.2020
-//        Watch watch1 = Watch.builder()
-////                .setBrand("Test")
-//////                .setFunctions(new LinkedList<>())
-////                .setBrand("Test Test")
-////                .addFunction("fdf")
-////                .buildWatch();
 
 
         Watch watch1 = new Watch("SomeBrand", "SomeModel");
@@ -99,24 +88,24 @@ public class Main {
         Watch.addFunction.newFunctionOnAndArray(watch1, "Timer-3");
         Watch.addFunction.newFunctionOnAndArray(watch1, "Timer-4");
 
-//        System.out.println(watch1.toString());
-//
-//        Watch.addFunction.newFunctionOnIndex(watch1,"TimerX",0);
-//        System.out.println(watch1.toString());
-//
-//
+        System.out.println(watch1.toString());
+
+        Watch.addFunction.newFunctionOnIndex(watch1,"TimerX",0);
+        System.out.println(watch1.toString());
+
+
 //        Watch.removeFunction.deleteFunctionByIndex(watch1,1);
 //        Watch.removeFunction.deleteFunctionByName(watch1,"Timer-4");
 //        System.out.println(watch1.toString());
 
 
-//        Watch.functionIterator.previousIteration();
+        Watch.functionIterator.previousIteration();
         Watch.functionIterator.nextIteration();
-//        Watch.functionIterator.nextIteration();
-//        Watch.functionIterator.nextIteration();
-//        Watch.functionIterator.nextIteration();
-//        Watch.functionIterator.nextIteration();
-//        Watch.functionIterator.nextIteration();
+        Watch.functionIterator.nextIteration();
+        Watch.functionIterator.nextIteration();
+        Watch.functionIterator.nextIteration();
+        Watch.functionIterator.nextIteration();
+        Watch.functionIterator.nextIteration();
         Watch.functionIterator.previousIteration();
         Watch.functionIterator.previousIteration();
         Watch.functionIterator.previousIteration();
