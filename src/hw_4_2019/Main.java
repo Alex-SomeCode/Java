@@ -93,34 +93,34 @@ public class Main {
 
         Watch watch1 = new Watch("SomeBrand", "SomeModel");
 
-        Watch.addFunction.newFunctionOnAndArray(watch1, "Timer-1");
-        Watch.addFunction.newFunctionOnAndArray(watch1, "Timer-2");
-        Watch.addFunction.newFunctionOnAndArray(watch1, "Timer-3");
-        Watch.addFunction.newFunctionOnAndArray(watch1, "Timer-4");
+        Watch.AddFunction.newFunctionOnAndArray("Timer-1");
+        Watch.AddFunction.newFunctionOnAndArray("Timer-2");
+        Watch.AddFunction.newFunctionOnAndArray("Timer-3");
+        Watch.AddFunction.newFunctionOnAndArray("Timer-4");
 
         System.out.println(watch1.toString());
 
-        Watch.addFunction.newFunctionOnIndex(watch1,"TimerX",0);
+        Watch.AddFunction.newFunctionOnIndex("TimerX",0);
         System.out.println(watch1.toString());
 
 
-        Watch.removeFunction.deleteFunctionByIndex(watch1,1);
-        Watch.removeFunction.deleteFunctionByName(watch1,"Timer-4");
+        Watch.RemoveFunction.deleteFunctionByIndex(1);
+        Watch.RemoveFunction.deleteFunctionByName("Timer-4");
         System.out.println(watch1.toString());
 
 
-        Watch.functionIterator.previousIteration();
-        Watch.functionIterator.nextIteration();
-        Watch.functionIterator.nextIteration();
-        Watch.functionIterator.nextIteration();
-        Watch.functionIterator.nextIteration();
-        Watch.functionIterator.nextIteration();
-        Watch.functionIterator.nextIteration();
-        Watch.functionIterator.previousIteration();
-        Watch.functionIterator.previousIteration();
-        Watch.functionIterator.previousIteration();
-        Watch.functionIterator.nextIteration();
-        Watch.functionIterator.nextIteration();
+        Watch.FunctionIterator.previousIteration();
+        Watch.FunctionIterator.nextIteration();
+        Watch.FunctionIterator.nextIteration();
+        Watch.FunctionIterator.nextIteration();
+        Watch.FunctionIterator.nextIteration();
+        Watch.FunctionIterator.nextIteration();
+        Watch.FunctionIterator.nextIteration();
+        Watch.FunctionIterator.previousIteration();
+        Watch.FunctionIterator.previousIteration();
+        Watch.FunctionIterator.previousIteration();
+        Watch.FunctionIterator.nextIteration();
+        Watch.FunctionIterator.nextIteration();
 
     }
 
