@@ -1,6 +1,5 @@
 package hw_5;
 
-
 import java.util.TreeMap;
 
 public class Main {
