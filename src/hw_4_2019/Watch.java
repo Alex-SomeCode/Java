@@ -50,24 +50,24 @@ public class Watch {
 
     // Створити внутрішній класс який додає елементи в кінець масиву, та додає елементи в конкретну позицію масиву.
 
-    public static class addFunction {
-        public static void newFunctionOnIndex(Watch watch, String function, int indexNumber) {
+    public static class AddFunction {
+        public static void newFunctionOnIndex(String function, int indexNumber) {
             functions.add(indexNumber, function);
         }
 
-        public static void newFunctionOnAndArray(Watch watch, String function) {
+        public static void newFunctionOnAndArray(String function) {
             functions.add(function);
         }
     }
 
     //        Створити внутрішній класс який видаляє елементи з цього масиву , видаляє елемент з певної позиції.
 
-    public static class removeFunction {
-        public static void deleteFunctionByName(Watch watch, String nameFunction) {
+    public static class RemoveFunction {
+        public static void deleteFunctionByName(String nameFunction) {
             functions.remove(nameFunction);
         }
 
-        public static void deleteFunctionByIndex(Watch watch, int index) {
+        public static void deleteFunctionByIndex(int index) {
             functions.remove(index);
         }
     }
@@ -77,7 +77,7 @@ public class Watch {
 //        Виклик методу prev() - робить те саме що і next() тільки в зворотньому напрямку
 //        (з урахуванням поточної позиції і викликів next())
 
-    public static class functionIterator {
+    public static class FunctionIterator {
         static int n = 0;
 
         public static void nextIteration() {
