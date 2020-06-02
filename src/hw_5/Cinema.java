@@ -19,7 +19,7 @@ public class Cinema {
     private Time close;
     private TreeMap<Days, Schedule> schedulesOnDays;
 
-    public Cinema(Time open, Time close, TreeMap <Days, Schedule> cinemaSchedule) {
+    public Cinema(Time open, Time close, TreeMap<Days, Schedule> cinemaSchedule) {
 
         this.open = open;
         this.close = close;
@@ -61,8 +61,11 @@ public class Cinema {
         TreeMap<Days, Schedule> stv1 = new TreeMap<>();
         Schedule stv2 = new Schedule();
 
+
         for (Map.Entry<Days, Schedule> scheduleEntry : entrySet) {
             TreeSet<Seance> seances = scheduleEntry.getValue().getSeances();
+
+            boolean marker;
 
             for (Seance seance : seances) {
 
@@ -72,7 +75,7 @@ public class Cinema {
 
                     System.out.println("ОК! Кінотеатр відкривається раніше, ніж розпочинається сеанс " +
                             "кінцо " + seance.getMovie().getTitle());
-
+                    marker = true;
                     stv2.addSeance(seance);
                     stv1.put(scheduleEntry.getKey(), stv2);
 
@@ -80,12 +83,19 @@ public class Cinema {
                     System.out.println("Помилка! Сеанс на кінцо " + seance.getMovie().getTitle()
                             + " розпочинається раніше, ніж працівнкики кінотеатру " +
                             "приходять на роботу.");
+                    marker = false;
                 }
 
                 if (close.getHour() > seance.getEndTime().getHour() ||
                         close.getHour() == seance.getEndTime().getHour()
                                 && close.getMin() > seance.getEndTime().getMin()) {
-                    System.out.println("ОК! Кінотеатр зачиняється після закінчення сенансу.");
+                    if (!marker) {
+                        System.out.println("НЕ ОК! Кінотеатр зачиняється після закінчення сенансу, БО КІНЦО РОЗПОЧАЛОСЬ ДО ВІДКРИТЯ "
+                                + "КІНТОЕАТРУ");
+                    }else {
+                        System.out.println("ОК! Кінотеатр зачиняється після закінчення сенансу");
+
+                    }
                 } else {
                     System.out.println("Помилка! Сеанс закінчується після закриття кінотеатру. ");
                 }

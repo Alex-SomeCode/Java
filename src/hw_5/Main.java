@@ -49,45 +49,13 @@ public class Main {
 //        наблизить програму до реальності вітається.
 
 
-//        Map<Book, List<Magazine>> map = new HashMap<>();
-//        map.put(book_1, new LinkedList<>());
-//        map.get(book_1).add(magazine_1);
-//        for (Map.Entry<Book, List<Magazine>> magazineEntry : map.entrySet()) {
-//            System.out.println(magazineEntry.getKey());
-//        }
-
-//
-//String [] arr = new String[3];
-//        Time time1 = new Time(30, 100);
-//
-//        Time time2 = new Time (1,50);
-//
-//        Time time3 = new Time(0,0);
-//
-//        System.out.println(time1);
-//
-//        time3.setHour(time1.getHour() + time2.getHour());
-//        time3.setMin(time1.getMin() + time2.getMin());
-//
-//        System.out.println(time3.toString());
-//
-//        int t = 4;
-//        int c = 1;
-//        t = c++;
-//        System.out.println(t);
-//        t = ++c;
-//        System.out.println(t);
-//
-//        System.out.println(t++ > 4);
-//        System.out.println(t++ > 4);
-
         Time timeOpen = new Time(8, 0);
         Time timeClose = new Time(23, 30);
 
 //        System.out.println(schedule.toString());
 
         Time duration_1 = new Time(15, 30);
-        Time duration_2 = new Time(3, 30);
+        Time duration_2 = new Time(18, 30);
         Time duration_3 = new Time(3, 30);
         Time duration_4 = new Time(5, 30);
         Time duration_5 = new Time(2, 10);
@@ -102,8 +70,8 @@ public class Main {
         Movie movie_6 = new Movie("Scrum", duration_6);
 
 
-        Time startTimeMovie_1 = new Time(8, 0);
-        Time startTimeMovie_2 = new Time(20, 0);
+        Time startTimeMovie_1 = new Time(7, 0);
+        Time startTimeMovie_2 = new Time(5, 0);
         Time startTimeMovie_3 = new Time(13, 0);
         Time startTimeMovie_4 = new Time(10, 0);
         Time startTimeMovie_5 = new Time(10, 30);
