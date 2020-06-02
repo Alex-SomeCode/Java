@@ -9,19 +9,13 @@ public class Seance implements Comparable<Seance> {
 //        -в конструктор має надходити параметрами значення для перших двох полів, третє поле повинне
 //        обчислюватись(start + duration);
 
-    Movie movie;
-    Time statTime;
-    Time endTime;
+   private Movie movie;
+   private Time statTime;
+   private Time endTime;
 
     public Seance(Movie movie, Time statTime) {
         this.movie = movie;
         this.statTime = statTime;
-
-
-//        this.endTime.setHour(statTime.getHour() + movie.getDuration().getHour());
-//        this.endTime.setMin(statTime.getMin() + movie.getDuration().getMin());
-
-
         this.endTime = new Time(this.statTime.getHour() + this.movie.getDuration().getHour(),
                 this.statTime.getMin() + this.movie.getDuration().getMin());
 

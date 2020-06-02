@@ -19,25 +19,67 @@ public class Cinema {
     private Time close;
     private TreeMap<Days, Schedule> schedulesOnDays;
 
-    public Cinema(Time open, Time close, TreeMap<Days, Schedule> schedulesOnDays) {
+    public Cinema(Time open, Time close, TreeMap <Days, Schedule> cinemaSchedule) {
 
         this.open = open;
         this.close = close;
-        this.schedulesOnDays = schedulesOnDays;
+        this.schedulesOnDays = validateSchedule(cinemaSchedule);
 
-        Set<Map.Entry<Days, Schedule>> entrySet = schedulesOnDays.entrySet();
+//   Наступні рядки коду більш правильно винести в окремий метод, наприклад private void validateSchedule(...),
+//   Так набагато зручніше читати
+//   По коду виходить так, що навіть якщо сеанс не входить в рамки графіку кінотеатру,
+//   він все одно залишається в розкладі. Було б добре його видаляти
+//
+//         for (Map.Entry<Days, Schedule> scheduleEntry : entrySet) {
+//            TreeSet<Seance> seances = scheduleEntry.getValue().getSeances();
+//            for (Seance seance : seances) {
+//
+//                if (open.getHour() < seance.getStatTime().getHour() ||
+//                        open.getHour() == seance.getStatTime().getHour() &&
+//                                open.getMin() < seance.getStatTime().getMin()) {
+//                    System.out.println("ОК! Кінотеатр відкривається раніше, ніж розпичинається сеанс.");
+//                } else {
+//                    System.out.println("Помилка! Сеанс розпочинається раніше, ніж працівнкики кінотеатру " +
+//                            "приїодять на роботу.");
+//                }
+//
+//                if (close.getHour() > seance.getEndTime().getHour() ||
+//                        close.getHour() == seance.getEndTime().getHour()
+//                                && close.getMin() > seance.getEndTime().getMin()) {
+//                    System.out.println("ОК! Кінотеатр зачиняється після закінчення сенансу.");
+//                } else {
+//                    System.out.println("Помилка! Сеанс закінчується після закриття кінотеатру. ");
+//                }
+//            }
+//        }
+
+    }
+
+    private TreeMap<Days, Schedule> validateSchedule(TreeMap<Days, Schedule> value) {
+
+        Set<Map.Entry<Days, Schedule>> entrySet = value.entrySet();
+        TreeMap<Days, Schedule> stv1 = new TreeMap<>();
+        Schedule stv2 = new Schedule();
 
         for (Map.Entry<Days, Schedule> scheduleEntry : entrySet) {
             TreeSet<Seance> seances = scheduleEntry.getValue().getSeances();
+
             for (Seance seance : seances) {
 
                 if (open.getHour() < seance.getStatTime().getHour() ||
                         open.getHour() == seance.getStatTime().getHour() &&
                                 open.getMin() < seance.getStatTime().getMin()) {
-                    System.out.println("ОК! Кінотеатр відкривається раніше, ніж розпичинається сеанс.");
+
+                    System.out.println("ОК! Кінотеатр відкривається раніше, ніж розпочинається сеанс " +
+                            "кінцо " + seance.getMovie().getTitle());
+
+                    stv2.addSeance(seance);
+                    stv1.put(scheduleEntry.getKey(), stv2);
+
                 } else {
-                    System.out.println("Помилка! Сеанс розпочинається раніше, ніж працівнкики кінотеатру " +
-                            "приїодять на роботу.");
+                    System.out.println("Помилка! Сеанс на кінцо " + seance.getMovie().getTitle()
+                            + " розпочинається раніше, ніж працівнкики кінотеатру " +
+                            "приходять на роботу.");
                 }
 
                 if (close.getHour() > seance.getEndTime().getHour() ||
@@ -49,9 +91,8 @@ public class Cinema {
                 }
             }
         }
-
+        return stv1;
     }
-
 
     public Time getOpen() {
         return open;
@@ -70,39 +111,57 @@ public class Cinema {
     }
 
     public void addSeances(String day, Seance... seances) {
-        Days[] days = Days.values();
-        boolean marker = false;
-        Days dayValue;
 
-        for (Days element : days) {
-            if (day.equals(element.name())) {
-                dayValue = element;
-                marker = true;
-                for (Seance seance : seances) {
-                    schedulesOnDays.get(dayValue).addSeance(seance);
-                }
+//        Days[] days = Days.values();
+//        boolean marker = false;
+//        Days dayValue;
+//
+//        for (Days element : days) {
+//            if (day.equals(element.name())) {
+//                dayValue = element;
+//                marker = true;
+//                for (Seance seance : seances) {
+//                    schedulesOnDays.get(dayValue).addSeance(seance);
+//                }
+//            }
+//        }
+//        if (!marker) System.out.println("Your input day - " + day + " is not found.");
+
+        try {
+            Days dayValue = Days.valueOf(day);
+            for (Seance seance : seances) {
+                schedulesOnDays.get(dayValue).addSeance(seance);
             }
+        } catch (Exception e) {
+            System.out.println("НЕМА ТАКОГО ДНЯ! Додати надані сеани неможливо.");
         }
-        if (!marker) System.out.println("Your input day - " + day + " is not found.");
 
 
     }
 
 
     public void addSeance(String day, Seance seance) {
-        Days[] days = Days.values();
-        Days dayValue;
-        boolean marker = false;
 
-        for (Days element : days) {
-            if (day.equals(element.name())) {
-                dayValue = element;
-                marker = true;
-                schedulesOnDays.get(dayValue).addSeance(seance);
-            }
+//        Days[] days = Days.values();
+//        Days dayValue;
+//        boolean marker = false;
+//
+//        for (Days element : days) {
+//            if (day.equals(element.name())) {
+//                dayValue = element;
+//                marker = true;
+//                schedulesOnDays.get(dayValue).addSeance(seance);
+//            }
+//        }
+//        if (!marker) System.out.println("Your input day - " + day + " is not found.");
+
+
+        try {
+            Days dayValue = Days.valueOf(day);
+            schedulesOnDays.get(dayValue).addSeance(seance);
+        } catch (Exception e) {
+            System.out.println("НЕМА ТАКОГО ДНЯ! Дадати наданий сеанс неможливо.");
         }
-        if (!marker) System.out.println("Your input day - " + day + " is not found.");
-
 
     }
 
@@ -128,7 +187,7 @@ public class Cinema {
             for (Seance seance : currentElement.getValue().getSeances()) {
                 text
                         .append(++i)
-                        .append(") ").append(seance.movie.getTitle())
+                        .append(") ").append(seance.getMovie().getTitle())
                         .append(" - ").append("розпочинається о: ").append(seance.getStatTime().getHour())
                         .append(" год. ").append(seance.getStatTime().getMin()).append(" хв.")
                         .append('\n').append('\t').append('\t').append('\t')
@@ -159,7 +218,7 @@ public class Cinema {
             while (seanceIterator.hasNext()) {
                 Seance seanceElement = seanceIterator.next();
 
-                if (seanceElement.movie.equals(movie)) {
+                if (seanceElement.getMovie().equals(movie)) {
                     marker = true;
                     seanceIterator.remove();
                 }
@@ -170,24 +229,34 @@ public class Cinema {
     }
 
     public void removeSeance(Seance seance, String day) {
+
+//        Set<Map.Entry<Days, Schedule>> entryOfSchedulesOnDays = schedulesOnDays.entrySet();
+//        Iterator<Map.Entry<Days, Schedule>> iterator = entryOfSchedulesOnDays.iterator();
+//
+//        Days dayValue = null;
+//        Days[] days = Days.values();
+//
+//        for (Days element : days) {
+//            if (element.name().equals(day)) {
+//                System.out.println(element.name());
+//                dayValue = element;
+//            }
+//        }
+
+
         Set<Map.Entry<Days, Schedule>> entryOfSchedulesOnDays = schedulesOnDays.entrySet();
         Iterator<Map.Entry<Days, Schedule>> iterator = entryOfSchedulesOnDays.iterator();
 
-        Days dayValue = null;
-        Days[] days = Days.values();
-
-        for (Days element : days) {
-            if (element.name().equals(day)) {
-                System.out.println(element.name());
-                dayValue = element;
+        try {
+            Days dayValue = Days.valueOf(day);
+            while (iterator.hasNext()) {
+                Map.Entry<Days, Schedule> currentElement = iterator.next();
+                if (currentElement.getKey().equals(dayValue)) {
+                    currentElement.getValue().removeSeance(seance);
+                }
             }
-        }
-
-        while (iterator.hasNext()) {
-            Map.Entry<Days, Schedule> currentElement = iterator.next();
-            if (currentElement.getKey().equals(dayValue)) {
-                currentElement.getValue().removeSeance(seance);
-            }
+        } catch (Exception e) {
+            System.out.println("Немає такого дня.");
         }
 
 

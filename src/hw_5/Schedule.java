@@ -36,6 +36,7 @@ public class Schedule {
 
         for (Seance seance : seances) {
             text.append(("Назва фільму: "))
+                    .append('\n')
                     .append(seance.getMovie().getTitle()).append(". ")
                     .append('\n')
                     .append("\t")

@@ -11,7 +11,7 @@ public class Time {
 
     public Time(int hour, int min) {
         this.hour = hour >= 0 && hour <= 23 ? hour : this.hour;
-        this.min = min >= 0 && min <= 58 ? min : this.min;
+        this.min = min >= 0 && min <= 59 ? min : this.min;
     }
 
     public int getMin() {
