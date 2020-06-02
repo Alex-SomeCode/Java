@@ -94,7 +94,7 @@ public class Main {
 
 //        Map map = new TreeMap;
        TreeMap<Days, Schedule> scheduleOnDays = new TreeMap<>();
-        scheduleOnDays.put(Days.MONDAY, scheduleMon);
+       scheduleOnDays.put(Days.MONDAY, scheduleMon);
 
         Cinema cinema = new Cinema(
                 timeOpen,
