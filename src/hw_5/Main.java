@@ -1,7 +1,7 @@
 package hw_5;
 
-import org.w3c.dom.ls.LSOutput;
 
+import java.util.Map;
 import java.util.TreeMap;
 
 public class Main {
@@ -92,8 +92,8 @@ public class Main {
         scheduleMon.addSeance(seance_3);
         scheduleMon.addSeance(seance_4);
 
-
-        TreeMap<Days, Schedule> scheduleOnDays = new TreeMap<>();
+//        Map map = new TreeMap;
+       TreeMap<Days, Schedule> scheduleOnDays = new TreeMap<>();
         scheduleOnDays.put(Days.MONDAY, scheduleMon);
 
         Cinema cinema = new Cinema(
@@ -109,7 +109,6 @@ public class Main {
 
         Seance[] arraySeance = {seance_1, seance_2, seance_3, seance_4, seance_5, seance_6};
         cinema.addSeances("MONDAY", arraySeance);
-
 
 
         System.out.println(cinema.toString());

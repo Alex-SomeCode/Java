@@ -11,7 +11,7 @@ public class Time {
 
     public Time(int hour, int min) {
         this.hour = hour >= 0 && hour <= 23 ? hour : this.hour;
-        this.min = min >= 0 && min <= 59 ? min : this.min;
+        this.min = min >= 0 && min <= 5 ? min : this.min;
     }
 
     public int getMin() {
@@ -21,12 +21,9 @@ public class Time {
     public void setMin(int min) {
 
         int sumMinutes = this.min + min;
-        if (sumMinutes >= 59) {
-
-            this.hour = ++this.hour > 23 ? this.hour = 0 : ++this.hour;
-
+        if (sumMinutes >= 60) {
+            this.hour = ++this.hour > 23 ? this.hour = 0 : this.hour;
             this.min = -59 + sumMinutes;
-
         } else {
             this.min = sumMinutes;
         }
@@ -43,13 +40,12 @@ public class Time {
         } else {
             this.hour = sumHours;
         }
-
     }
 
     @Override
     public String toString() {
         return
                 hour + " год. " +
-                min + " хв.";
+                        min + " хв.";
     }
 }
