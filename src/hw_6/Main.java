@@ -1,7 +1,6 @@
 package hw_6;
 
 
-
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -32,7 +31,7 @@ public class Main {
 
         List<Person> persons = Arrays.asList(person1, person2, person3, person4);
 
-                                                                                // Function.identity()
+        // Function.identity()
         Map<Person, Integer> collect1 = persons.stream().collect(Collectors.toMap(person -> person,
                 person -> {
                     int countPages = 0;
@@ -98,9 +97,8 @@ public class Main {
 
         Iterator<Book> iterator = collect.iterator();
 
-        System.out.println("_________________ > 25; > 500" );
-        collect.forEach(book-> System.out.println(book));
-
+        System.out.println("_________________ > 25; > 500");
+        collect.forEach(book -> System.out.println(book));
 
 
     } //main
