@@ -86,8 +86,8 @@ public class Main {
 
         System.out.println("______________________________");
         List<Integer> collect = IntStream.range(0, intCollection.size()).filter(value -> {
-            if(intCollection.get(value)%10==0) return true;
-             return false;
+            if (intCollection.get(value) % 10 == 0) return true;
+            return false;
         }).mapToObj(intCollection::get).collect(Collectors.toList());
         collect.forEach(c -> System.out.println(c));
 
@@ -508,6 +508,7 @@ public class Main {
 
 //        Для початку вкладіть всі наші створені автомобілі в масив cars.
         System.out.println("________________________________________");
+        System.out.println("-----------------------------Для початку вкладіть всі наші створені автомобілі в масив cars. \n");
         List<NextCar> nextCarsCollection = Arrays.asList(carN1, carN2, carN3, carN4, carN5, carN6, carN7);
         nextCarsCollection.forEach(System.out::println);
 
@@ -547,11 +548,13 @@ public class Main {
                 " що збільшить йому досвід на 1 рік" + "\n");
 
         List<NextCar> educationDriversCollect = nextCarsCollection.stream().map(car -> {
-            System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             System.out.println(car.getDriver().getExperience());
+            System.out.println("___");
+
             if (car.getDriver().getExperience() < 5 && car.getDriver().getAge() > 25) {
                 car.getDriver().setExperience(car.getDriver().getExperience() + 1);
-                System.out.println(car.getDriver().getExperience());
+                System.out.println("Чувак який вчився: " + car.getDriver().getName() +
+                        ", new experience " + car.getDriver().getExperience());
             }
             return car;
         }).collect(Collectors.toList());
@@ -610,7 +613,7 @@ public class Main {
 
         int a1 = 25;
         int b2 = 112;
-        System.out.println(a1&b2);
+        System.out.println(a1 & b2);
 
 //        ArrayList ab = new   ArrayList<>();
 //
@@ -623,8 +626,7 @@ public class Main {
 //
 
 
-
-
+        System.out.println(car1.toString());
 
     }
 }

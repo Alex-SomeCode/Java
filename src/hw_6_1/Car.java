@@ -88,19 +88,19 @@ public class Car {
         this.power = power;
     }
 
-//    @Override
-//    public String toString() {
-//        return "Cars{" +
-//                "producer='" + producer + '\'' +
-//                ", model='" + model + '\'' +
-//                ", year=" + year +
-//                ", color='" + color + '\'' +
-//                ", type='" + type + '\'' +
-//                ", engine='" + engine + '\'' +
-//                ", volume=" + volume +
-//                ", power=" + power +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Cars{" +
+                "producer='" + producer + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", color='" + color + '\'' +
+                ", type='" + type + '\'' +
+                ", engine='" + engine + '\'' +
+                ", volume=" + volume +
+                ", power=" + power +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
