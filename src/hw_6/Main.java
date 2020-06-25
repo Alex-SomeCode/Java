@@ -95,7 +95,6 @@ public class Main {
                 .filter(book -> book.getPages() > 500)
                 .collect(Collectors.toList());
 
-        Iterator<Book> iterator = collect.iterator();
 
         System.out.println("_________________ > 25; > 500");
         collect.forEach(book -> System.out.println(book));

@@ -16,9 +16,9 @@ public class Book implements Comparable<Book> {
 
 
 
-    String name;
-    String country;
-    int pages;
+    private String name;
+    private String country;
+    private int pages;
 
     public Book(String name, String country, int pages) {
         this.name = name;

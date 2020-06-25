@@ -1,6 +1,5 @@
 package hw_6_1;
 
-import org.w3c.dom.ls.LSOutput;
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -36,6 +35,9 @@ public class Main {
         intCollection.add(r.nextInt(Integer.MAX_VALUE));
         intCollection.add(r.nextInt(Integer.MAX_VALUE));
 
+
+//        intCollection.forEach(value-> System.out.println(value));
+
 //       -- при помощи метода sort и колбека отсортировать массив.
 
         System.out.println("-------------------min to max------------------------------------");
@@ -61,9 +63,33 @@ public class Main {
 
 
 //       -- при помощи filter получить числа кратные 10
+
+        // можеш для себе спробувати тут IntStream.
+        // такий стрім призначений власне для колекцій інтів, має навіть методи спеціально під числа
+
         System.out.println("--------------------/10----------------------------------");
-        List<Integer> collect4 = intCollection.stream().filter(number -> number % 10 == 0).collect(Collectors.toList());
+        List<Integer> collect4 =
+                intCollection.stream().filter(number ->
+                        number % 10 == 0).collect(Collectors.toList());
         collect4.forEach(number -> System.out.println(number));
+
+        //  !!! як можливсть виконання даного завдання використовуючи IntStream !!!
+//        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+//
+//        List<Integer> list1 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+//        List<Integer> collect = IntStream.range(0, list.size())
+//                .filter(n -> n % 3 == 0) //3 - каждый 3-ий элемент
+//                .mapToObj(list::get)
+//                .collect(Collectors.toList());
+//
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        System.out.println("______________________________");
+        List<Integer> collect = IntStream.range(0, intCollection.size()).filter(value -> {
+            if(intCollection.get(value)%10==0) return true;
+             return false;
+        }).mapToObj(intCollection::get).collect(Collectors.toList());
+        collect.forEach(c -> System.out.println(c));
 
 
 //       -- перебрать(проитерировать) массив при помощи foreach ()
@@ -551,12 +577,12 @@ public class Main {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == value) {
                 if (firstIndex == -1) firstIndex = i;
-                 lastIndex = i;
+                lastIndex = i;
             }
         }
 
         System.out.println(firstIndex + "  " + lastIndex);
-
+        System.out.println(car1);
 
 //        Пример:
 //        Arr = [1, 2, 3, 4, 4, 4, 4, 7, 7, 9, 14]
@@ -566,6 +592,38 @@ public class Main {
 //        2. Key = 4
 //        Answer:
 //        MinIndex = 3, MaxIndex = 6.
+
+
+        System.out.println(Integer.MAX_VALUE);
+        System.out.println(Integer.MIN_VALUE);
+
+
+        byte a = 5;
+
+        String x = "П";
+        System.out.println("___________________");
+
+//        byte [] arr1 = x.get;
+//        for (byte b : arr1) {
+//            System.out.println(b);
+//        }
+
+        int a1 = 25;
+        int b2 = 112;
+        System.out.println(a1&b2);
+
+//        ArrayList ab = new   ArrayList<>();
+//
+//        int []  arr3 = new int [5];
+//
+//        System.out.println(arr3);
+//        for (int i : arr3) {
+//            System.out.println(i);
+//        }
+//
+
+
+
 
 
     }

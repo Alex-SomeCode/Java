@@ -3,13 +3,13 @@ package hw_6_1;
 import java.util.Objects;
 
 public class nextUsers {
-    String name;
-    int age;
-    String address;
-    String street;
-    int number;
-    int id;
-    boolean status;
+    private String name;
+    private int age;
+    private String address;
+    private String street;
+    private int number;
+    private int id;
+    private boolean status;
 
     @Override
     public String toString() {

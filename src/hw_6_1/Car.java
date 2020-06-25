@@ -13,7 +13,7 @@ public class Car {
     private double volume;
     private int power;
 
-    public Car(String producer, String model, int year, String color, String type, String engine, double volume, int power) {
+    public Car(String producer, String model, int year, String color, String type, String engine, double     volume, int power) {
         this.producer = producer;
         this.model = model;
         this.year = year;
@@ -88,19 +88,19 @@ public class Car {
         this.power = power;
     }
 
-    @Override
-    public String toString() {
-        return "Cars{" +
-                "producer='" + producer + '\'' +
-                ", model='" + model + '\'' +
-                ", year=" + year +
-                ", color='" + color + '\'' +
-                ", type='" + type + '\'' +
-                ", engine='" + engine + '\'' +
-                ", volume=" + volume +
-                ", power=" + power +
-                '}';
-    }
+//    @Override
+//    public String toString() {
+//        return "Cars{" +
+//                "producer='" + producer + '\'' +
+//                ", model='" + model + '\'' +
+//                ", year=" + year +
+//                ", color='" + color + '\'' +
+//                ", type='" + type + '\'' +
+//                ", engine='" + engine + '\'' +
+//                ", volume=" + volume +
+//                ", power=" + power +
+//                '}';
+//    }
 
     @Override
     public boolean equals(Object o) {
