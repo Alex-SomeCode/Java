@@ -90,9 +90,10 @@ public class Cinema {
                         close.getHour() == seance.getEndTime().getHour()
                                 && close.getMin() > seance.getEndTime().getMin()) {
                     if (!marker) {
-                        System.out.println("НЕ ОК! Кінотеатр зачиняється після закінчення сенансу, БО КІНЦО РОЗПОЧАЛОСЬ ДО ВІДКРИТЯ "
+                        System.out.println("НЕ ОК! Кінотеатр зачиняється після закінчення сенансу,"
+                                + " БО КІНЦО " + seance.getMovie().getTitle() + " РОЗПОЧАЛОСЬ ДО ВІДКРИТЯ "
                                 + "КІНТОЕАТРУ");
-                    }else {
+                    } else {
                         System.out.println("ОК! Кінотеатр зачиняється після закінчення сенансу");
 
                     }
